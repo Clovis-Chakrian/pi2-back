@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from "express";
 import cors from 'cors';
 import pg from 'pg'
@@ -13,11 +14,11 @@ app.use(cors({
 }));
 app.get(('/tipo-escola'), async (req, res) => {
   const client = new Client({
-    user: 'wasmytgc',
-    host: 'tuffi.db.elephantsql.com',
-    database: 'wasmytgc',
-    password: 'zx9gZEyN58xRy_882figQMMp2zLYeTxY',
-    port: '5432'
+    user: `${process.env.USER}`,
+    host: `${process.env.HOST}`,
+    database: `${process.env.DATABASE}`,
+    password: `${process.env.PASSWORD}`,
+    port: `${process.env.PORT}`
   })
 
   console.log("Conectando com o db...")
